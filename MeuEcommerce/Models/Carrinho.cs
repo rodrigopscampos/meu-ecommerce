@@ -30,6 +30,8 @@ namespace MeuEcommerce.Models
                 Itens.Add(produto.Id, carrinhoItem);
             }
         }
+
+        public int QuantidadeDeItens => Itens.Values.Sum(item => item.Quantidade);
     }
 
     public class CarrinhoItem

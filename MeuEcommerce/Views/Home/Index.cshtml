@@ -40,7 +40,7 @@
                 <span class="p-name">@item.Nome </span>
                 <span class="p-description">@item.Descricao</span>
                 <img  class="p-imagem" src="@item.Imagem" />
-                <input type="button" class="btn btn-primary" value="Adicionar" />
+                <a class="btn btn-primary" href="/home/additem/@item.Id">Adicionar</a>
                 <span disabled class="btn btn-info">@item.Preco.ToString("R$ 0#.##")</span>
             </div>
         }
