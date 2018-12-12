@@ -7,17 +7,9 @@ using System.Web.Mvc;
 
 namespace MeuEcommerce.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        private Carrinho GetCarrinho()
-        {
-            if (Session["carrinho"] == null)
-            {
-                Session["carrinho"] = new Carrinho();
-            }
-
-            return (Carrinho)Session["carrinho"];
-        }
+        
 
         static Produto[] _produtos;
         private Produto[] GetProdutos()
@@ -64,11 +56,9 @@ namespace MeuEcommerce.Controllers
 
         public ActionResult Index(int? categoria)
         {
-            ViewBag.Carrinho = GetCarrinho();
-
             var model = new Models.HomeIndexViewModel();
-            model.CategoriaSelectionada = categoria;
 
+            model.CategoriaSelectionada = categoria;
             model.Produtos = GetProdutos();
             model.Categorias = GetCategorias();
 
@@ -88,7 +78,7 @@ namespace MeuEcommerce.Controllers
             var produto = GetProdutos().First(p => p.Id == id);
             var carrinho = GetCarrinho();
             carrinho.Add(produto);
-          
+
             return RedirectToAction("Index", new { categoria = categoria });
         }
 

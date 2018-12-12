@@ -7,7 +7,7 @@ namespace MeuEcommerce.Models
 {
     public class Carrinho
     {
-        private Dictionary<int, CarrinhoItem> Itens;
+        public Dictionary<int, CarrinhoItem> Itens;
 
         public Carrinho()
         {
