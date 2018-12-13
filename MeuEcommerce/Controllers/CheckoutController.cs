@@ -12,7 +12,6 @@ namespace MeuEcommerce.Controllers
         public ActionResult Index()
         {
             var model = new CheckoutIndexViewModel();
-
             model.Carrinho = GetCarrinho();
 
             return View(model);

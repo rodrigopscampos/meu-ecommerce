@@ -16,7 +16,7 @@ namespace MeuEcommerce.Models
 
         public void Add(Produto produto)
         {
-            if(Itens.ContainsKey(produto.Id))
+            if (Itens.ContainsKey(produto.Id))
             {
                 Itens[produto.Id].Quantidade++;
             }
@@ -32,27 +32,16 @@ namespace MeuEcommerce.Models
         }
 
         public int QuantidadeDeItens => Itens.Values.Sum(item => item.Quantidade);
-    }
 
-    public class CarrinhoItem
-    {
-        public int IdProduto { get; set; }
-        public string Nome { get; set; }
-        public decimal PrecoUnitario { get; set; }
-        public int Quantidade { get; set; }
-
-        public CarrinhoItem(
-            int idProduto, 
-            string nome, 
-            decimal precoUnitario)
+        public decimal GetPrecoTotal()
         {
-            this.IdProduto = idProduto;
-            this.Nome = nome;
-            this.Quantidade = 1;
-            this.PrecoUnitario = precoUnitario;
-        }
+            decimal resultado = 0;
+            foreach (var item in Itens.Values)
+            {
+                resultado += item.PrecoTotal;
+            }
 
-        public decimal PrecoTotal 
-            => PrecoUnitario * Quantidade;
+            return resultado;
+        }
     }
 }

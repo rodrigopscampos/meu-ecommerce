@@ -75,8 +75,11 @@ namespace MeuEcommerce.Controllers
 
         public ActionResult AddItem(int id, int? categoria)
         {
-            var produto = GetProdutos().First(p => p.Id == id);
+            var todosOsProdutos = GetProdutos();
+
+            var produto = todosOsProdutos.First(p => p.Id == id);
             var carrinho = GetCarrinho();
+
             carrinho.Add(produto);
 
             return RedirectToAction("Index", new { categoria = categoria });
