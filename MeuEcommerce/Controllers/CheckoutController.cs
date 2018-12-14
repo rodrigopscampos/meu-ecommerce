@@ -16,5 +16,44 @@ namespace MeuEcommerce.Controllers
 
             return View(model);
         }
+
+        public ActionResult Continuar()
+        {
+            return View();
+        }
+
+        public ActionResult Incrementa(int id)
+        {
+            var carrinho = GetCarrinho();
+            carrinho.Incrementa(id);
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Decrementa(int id)
+        {
+            var carrinho = GetCarrinho();
+            carrinho.Decrementa(id);
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var carrinho = GetCarrinho();
+            carrinho.Delete(id);
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Limpar()
+        {
+            var carrinho = GetCarrinho();
+            carrinho.Limpar();
+
+            return RedirectToAction(
+                actionName: "Index", 
+                controllerName: "Home");
+        }
     }
 }

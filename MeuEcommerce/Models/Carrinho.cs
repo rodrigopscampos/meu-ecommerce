@@ -31,7 +31,32 @@ namespace MeuEcommerce.Models
             }
         }
 
+        public void Decrementa(int id)
+        {
+            Itens[id].Quantidade--;
+
+            if (Itens[id].Quantidade <= 0)
+            {
+                Delete(id);
+            }
+        }
+
+        public void Incrementa(int id)
+        {
+            Itens[id].Quantidade++;
+        }
+
+        public void Delete(int id)
+        {
+            Itens.Remove(id);
+        }
+
         public int QuantidadeDeItens => Itens.Values.Sum(item => item.Quantidade);
+
+        public void Limpar()
+        {
+            Itens.Clear();
+        }
 
         public decimal GetPrecoTotal()
         {

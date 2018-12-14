@@ -1,4 +1,5 @@
-﻿using MeuEcommerce.Models;
+﻿using MeuEcommerce.DAL;
+using MeuEcommerce.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace MeuEcommerce.Controllers
 {
     public class BaseController : Controller
     {
+        protected DbContext _dbc = new DbContext();
+
         protected override void OnActionExecuting(
             ActionExecutingContext filterContext)
         {
