@@ -15,13 +15,13 @@ namespace MeuEcommerce
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}/{abc}",
+                url: "{controller}/{action}/{id}",
                 defaults: new
                 {
                     controller = "Home",
                     action = "Index",
-                    id = UrlParameter.Optional,
-                    abc = UrlParameter.Optional
+                    id = UrlParameter.Optional
+                
                 }
             );
         }
