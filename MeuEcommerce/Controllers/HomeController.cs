@@ -14,13 +14,13 @@ namespace MeuEcommerce.Controllers
             var model = new Models.HomeIndexViewModel();
 
             model.CategoriaSelectionada = categoria;
-            model.Produtos = _dbc.GetProdutos();
-            model.Categorias = _dbc.GetCategorias();
+            model.Produtos = _dbc.Produtos.ToArray();
+            model.Categorias = _dbc.Categorias.ToArray();
 
             if (categoria != null)
             {
                 model.Produtos = model.Produtos
-                    .Where(p => p.IdCategoria == categoria)
+                    .Where(p => p.CategoriaId == categoria)
                     .ToArray();
 
             }
