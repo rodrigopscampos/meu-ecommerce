@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data;
+using System.Data.Entity;
 
 namespace MeuEcommerce.Controllers
 {
@@ -75,7 +77,12 @@ namespace MeuEcommerce.Controllers
             _dal.Compras.Add(compra);
             _dal.SaveChanges();
 
-            return View();
+            compra = _dal.Compras
+                .Include(c => c.Itens)
+                .Include(c => c.Itens.Select(i => i.Produto))
+                .FirstOrDefault(item => item.Id == compra.Id);
+
+            return View(compra);
         }
     }
 }

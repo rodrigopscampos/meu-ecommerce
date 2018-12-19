@@ -14,6 +14,10 @@ namespace MeuEcommerce.Models
 
         public virtual List<CompraItem> Itens { get; set; }
 
+        [NotMapped]
+        public decimal PrecoTotal
+            => Itens.Sum(i => i.PrecoTotal);
+
         public Compra() { }
 
         public Compra(List<CompraItem> itens)

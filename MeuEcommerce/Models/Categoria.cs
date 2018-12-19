@@ -12,5 +12,13 @@ namespace MeuEcommerce.Models
 
         public List<Produto> Produto { get; set; }
 
+        public Categoria() { }
+
+        public Categoria(int id, string nome)
+        {
+            this.Id = id;
+            this.Nome = nome;
+        }
+
     }
 }

@@ -17,5 +17,18 @@ namespace MeuEcommerce.Models
 
         public int CategoriaId { get; set; }
         public virtual Categoria Categoria { get; set; }
+
+        public Produto() { }
+
+        Random _random = new Random();
+
+        public Produto(string nome, int categoriaId )
+        {
+            Nome = nome;
+            CategoriaId = categoriaId;
+            Preco = _random.Next(10, 100) + (decimal)_random.NextDouble();
+            Descricao = "Descrição - " + Nome;
+            Imagem = "img/" + nome + ".jpg";
+        }
     }
 }
