@@ -55,5 +55,27 @@ namespace MeuEcommerce.Controllers
                 actionName: "Index", 
                 controllerName: "Home");
         }
+
+        public ActionResult CompraRealizada()
+        {
+            var carrinho = GetCarrinho();
+
+            var compraItens = new List<CompraItem>();
+
+            foreach (var item in carrinho.Itens)
+            {
+                compraItens.Add(
+                    new CompraItem(
+                        item.Value.Quantidade,
+                        item.Value.PrecoUnitario,
+                        item.Value.IdProduto));
+            }
+
+            var compra = new Compra(compraItens);
+            _dal.Compras.Add(compra);
+            _dal.SaveChanges();
+
+            return View();
+        }
     }
 }

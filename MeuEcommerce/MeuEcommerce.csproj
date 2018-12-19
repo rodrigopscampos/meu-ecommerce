@@ -179,11 +179,21 @@
     <Compile Include="Migrations\201812182331066_RenomeiaTabelaProduto.Designer.cs">
       <DependentUpon>201812182331066_RenomeiaTabelaProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812192157250_AdicionaCompraECompraItem.cs" />
+    <Compile Include="Migrations\201812192157250_AdicionaCompraECompraItem.Designer.cs">
+      <DependentUpon>201812192157250_AdicionaCompraECompraItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812192202514_Add_Status_Compra.cs" />
+    <Compile Include="Migrations\201812192202514_Add_Status_Compra.Designer.cs">
+      <DependentUpon>201812192202514_Add_Status_Compra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Carrinho.cs" />
     <Compile Include="Models\CarrinhoItem.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\CheckoutIndexViewModel.cs" />
+    <Compile Include="Models\Compra.cs" />
+    <Compile Include="Models\CompraItem.cs" />
     <Compile Include="Models\HomeIndexViewModel.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -272,6 +282,7 @@
     <Content Include="Views\Checkout\Continuar.cshtml" />
     <Content Include="Views\Errors\NotFound.cshtml" />
     <Content Include="Views\Errors\InternalServerError.cshtml" />
+    <Content Include="Views\Checkout\CompraRealizada.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -299,6 +310,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812182331066_RenomeiaTabelaProduto.resx">
       <DependentUpon>201812182331066_RenomeiaTabelaProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812192157250_AdicionaCompraECompraItem.resx">
+      <DependentUpon>201812192157250_AdicionaCompraECompraItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812192202514_Add_Status_Compra.resx">
+      <DependentUpon>201812192202514_Add_Status_Compra.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
